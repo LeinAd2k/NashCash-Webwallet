@@ -1,13 +1,12 @@
 let global : any = typeof window !== 'undefined' ? window : self;
 global.config = {
-    apiUrl: typeof window !== 'undefined' && window.location ? window.location.href.substr(0, window.location.href.lastIndexOf('/') + 1) + 'api/' : 'https://wallet.plenteum.com/api/',
-    mainnetExplorerUrl: "https://turtle.land",
-    testnetExplorerUrl: "https://explorer.turtlecoin.lol/",
+    apiUrl: typeof window !== 'undefined' && window.location ? window.location.href.substr(0, window.location.href.lastIndexOf('/') + 1) + 'api/' : 'https://api.nashcash.net/cache/',
+    mainnetExplorerUrl: "http://explorer.nashcash.net",
     testnet: false,
-    coinUnitPlaces: 2,
+    coinUnitPlaces: 8,
     txMinConfirms: 60,         // corresponds to CRYPTONOTE_DEFAULT_TX_SPENDABLE_AGE in Monero
     txCoinbaseMinConfirms: 120, // corresponds to CRYPTONOTE_MINED_MONEY_UNLOCK_WINDOW in Monero
-    addressPrefix: 3914525,
+    addressPrefix: 0x5bc80,
     integratedAddressPrefix: 0,
     addressPrefixTestnet: 0,
     integratedAddressPrefixTestnet: 0,
@@ -19,10 +18,10 @@ global.config = {
     idleTimeout: 30,
     idleWarningDuration: 20,
 
-    coinSymbol: 'TRTL',
-    openAliasPrefix: "trtl",
-    coinName: 'TurtleCoin',
-    coinUriPrefix: 'turtlecoin:',
-    avgBlockTime: 30,
+    coinSymbol: 'NaCa',
+    openAliasPrefix: "NaCa",
+    coinName: 'NashCash',
+    coinUriPrefix: 'nashcash:',
+    avgBlockTime: 60,
     maxBlockNumber: 500000000,
 };
