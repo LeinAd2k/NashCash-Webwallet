@@ -1,22 +1,22 @@
 {
-  "name": "TurtleCoinWebWallet",
+  "name": "plenteumwebwallet",
   "version": "1.0.0",
-  "description": "Fully client side web wallet for TurtleCoin",
+  "description": "Fully client side web wallet for Plenteum",
   "main": "index.js",
   "dependencies": {
-    "localforage": "^1.7.2",
+    "localforage": "^1.7.3",
     "typescript": "^2.9.2",
-    "workbox-build": "^3.4.1"
+    "workbox-build": "^3.6.3"
   },
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/turtlecoin/turtlecoin-webwallet-js.git"
+    "url": "git+https://github.com/plenteum/plnteum-webwallet-js.git"
   },
-  "author": "gnock & TurtleCoin",
+  "author": "gnock & Plenteum",
   "license": "BSD-3",
   "bugs": {
-    "url": "https://github.com/turtlecoin/turtlecoin-webwallet-jsissues"
+    "url": "https://github.com/plenteum/plenteum-webwallet-js/issues"
   },
-  "homepage": "https://github.com/turtlecoin/turtlecoin-webwallet-js#readme"
+  "homepage": "https://github.com/plenteum/plenteum-webwallet-js#readme"
 }

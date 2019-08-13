@@ -6,7 +6,6 @@ php_api_src/lastRun.txt
 wwwroot/**/*.js
 wwwroot/**/*.js.map
 !wwwroot/lib/*.js
-!wwwroot/localforage.js
 !wwwroot/lib/**/*.js
 wwwroot/lib/numbersLab/*.js
 wwwroot/lib/numbersLab/*.map
@@ -14,5 +13,9 @@ debug/
 .vs
 bin/*
 obj/*
-*.csproj.user
 wwwroot/service-worker.js
+wwwroot/service-worker.js
+Properties/PublishProfiles/FolderProfile1.pubxml
+*.pubxml
+wwwroot/service-worker.js
+*.user

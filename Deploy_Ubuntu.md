@@ -1,9 +1,11 @@
-Step 1: Install the Dot Net Core SDK
+# How to compile & Deploy (Ubuntu)
+
+# Step 1: Install the Dot Net Core SDK
 
 Follow these instructions to instal dotnetcore sdk with package manager:
 https://www.microsoft.com/net/download/linux-package-manager/ubuntu16-04/sdk-2.1.402
 
-Step 2: git clone your repo
+# Step 2: git clone your repo
 
 open Program.cs in the root of the cloned repo and remove or comment out the below lines:
 
@@ -18,19 +20,14 @@ then, open Startup.cs, find the line: app.UseHttpsRedirection(); and delete it
 
 Save the file.... 
 
-Step 3: Build.... 
+# Step 3: Build.... 
 
-first build the typescript and service workers by running the following three commands:
+First build the typescript and service workers by running the following three commands:
 
 	npm install
 	node ./node_modules/typescript/bin/tsc --project tsconfig.prod.json
 	node build.js
-	dotnet publish --configuration Release
-	cd bin/Release/netcoreapp2.1/publish	dotnet WebWallet.dll
 
-	misery acidic ingested vein itself pawnshop trolling listen orders union swung betting below wobbly dads sober jostle noises aphid going ablaze pegs evicted foiled misery
-block: 248,500
-	
 ** Note, if you run these AFTER building the app (ie: you change some source, you need to delete the below two folders otherwise you'll get TS build errors:
 
 	bin/Release
@@ -40,13 +37,11 @@ now, run the following to build the source:
 
 	dotnet publish --configuration Release
 
-	cd bin/Release/netcoreapp2.1/publish	dotnet WebWallet.dll
-
 The runtime files are found in : [source root folder]/bin/Release/netcoreapp2.1/publish
 
 At this point your app is ready to run, but it will only work on http://localhost:port, which is why we need Nginx
 
-Step 4: Install Nginx
+# Step 4: Install Nginx
 Below is a summary of the steps required, more details documentation can be found here:
 https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/linux-nginx?view=aspnetcore-2.1&tabs=aspnetcore2x
 
@@ -57,7 +52,7 @@ Run the following commands:
 	sudo apt-get update
 	sudo apt-get install nginx
 
-Step 5: Start Nginx 
+# Step 5: Start Nginx 
 
 run: 
 	sudo service nginx start
@@ -67,7 +62,7 @@ Now, verify that Nginx is working by going to http://<your servers ip> in a brow
 Welcome to nginx!
 If you see this page, blah blah blah... 
 
-Step 6: Configure Nginx
+# Step 6: Configure Nginx
 
 	sudo nano /etc/nginx/sites-available/default
 
@@ -75,7 +70,7 @@ then paste the following into the file:
 
 server {
     listen        80;
-    server_name   turtlestash.com *.turtlestash.com;
+    server_name   wallet.plenteum.com;
     location / {
         proxy_pass         http://localhost:5000;
         proxy_http_version 1.1;
@@ -98,15 +93,15 @@ more details on this here, with best practice examples, the above is just a basi
 
 Save the file
 
-Step 7: 
+# Step 7: 
 
-Start your TurtleCoind node. The TurtleCoin daemon must be running with the following cli arguments
+Start your Plenteumd node. The Plenteum daemon must be running with the following cli arguments
 
-	'./TurtleCoind --enable-blockexplorer --enable-cors "*" --rpc-bind-ip 0.0.0.0'
+	'./Plenteumd --enable-blockexplorer --enable-cors "*" --rpc-bind-ip 0.0.0.0'
 
-ensure your node is fully sync'd with the TurtleCoin network before you proceed to the next step.
+ensure your node is fully sync'd with the Plenteum network before you proceed to the next step.
 
-Step 8:
+# Step 8:
 
 run: 
 
@@ -125,6 +120,6 @@ Now, if you try browse to the site, you should see "Bad Gateway"... this is all 
 
 Then, from the "publish" diretory above, run:
 
-cd bin/Release/netcoreapp2.1/publish	dotnet WebWallet.dll
+	dotnet WebWallet.dll
 
 Now, browse to your spiffy new webwallet :-)
